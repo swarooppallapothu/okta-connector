@@ -1,2 +1,11 @@
 server:
   port: 5000
+
+app:
+  name: okta-connector
+  config:
+    okta:
+      domain:
+      apiVersion: v1
+      apiKey:
+      apiBaseUrl: ${app.config.okta.domain}/api/${app.config.okta.apiVersion}
