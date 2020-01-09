@@ -68,6 +68,7 @@ public class EventServiceImpl extends OktaUtils implements EventService {
             final List<LoginSummary> loginSummaries = new ArrayList<>();
             getEvents(eventRequest).stream()
                     .map(event -> event.getTargets().get(0).getLogin())
+                    .filter(target -> target != null)
                     .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                     .forEach((email, count) -> loginSummaries.add(new LoginSummary(email, count)));
             return loginSummaries;
