@@ -33,8 +33,7 @@ public class EventServiceImplTest {
 
     private Event getEventMock(String userEmail) {
         Actor target = new Actor("", "", userEmail, "", "");
-        Event event = new Event("", "", "", ZonedDateTime.now(), null, null, Arrays.asList(target));
-        return event;
+        return new Event("", "", "", ZonedDateTime.now(), null, null, Arrays.asList(target));
     }
 
     private List<Event> getEventsMockData() {
