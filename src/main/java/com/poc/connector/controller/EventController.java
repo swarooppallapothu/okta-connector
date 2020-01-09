@@ -1,6 +1,7 @@
 package com.poc.connector.controller;
 
-import com.poc.connector.mode.Event;
+import com.poc.connector.model.response.Event;
+import com.poc.connector.model.request.EventRequest;
 import com.poc.connector.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/okta/events")
 public class EventController {
 
     private final EventService eventService;
@@ -23,8 +24,8 @@ public class EventController {
     }
 
     @GetMapping(value = "")
-    public ResponseEntity<List<Event>> message() {
-        return new ResponseEntity<List<Event>>(eventService.getEvents(), HttpStatus.OK);
+    public ResponseEntity<List<Event>> message(EventRequest request) {
+        return new ResponseEntity<List<Event>>(eventService.getEvents(request), HttpStatus.OK);
     }
 
 }

@@ -13,14 +13,6 @@ public enum OktaApiEndpoint implements ApiEndpoint {
         this.pathTemplate = pathTemplate;
     }
 
-    public MultiValueMap<String, String> getHeaders(String apiKey) {
-        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-        headers.add("Accept", "application/json");
-        headers.add("Content-Type", "application/json");
-        headers.add("Authorization", "SSWS " + apiKey);
-        return headers;
-    }
-
     @Override
     public String getPathTemplate() {
         return pathTemplate;
